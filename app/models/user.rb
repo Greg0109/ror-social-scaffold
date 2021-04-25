@@ -29,5 +29,12 @@ class User < ApplicationRecord
 
   has_many :received_requests, -> { merge(Friendship.not_friends) },
            through: :friend_request, source: :sent_by
-
+  
+  def friends_and_own_posts
+    our_posts = []
+    posts.each do |p|
+      our_posts << p
+    end
+    our_posts
+  end
 end
