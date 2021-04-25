@@ -48,16 +48,14 @@ module ApplicationHelper
   end
 
   def display_friends(user)
-    if current_user.friends.include?(user)
-      link_to user.name, user_path(user)
-    end
+    link_to user.name, user_path(user) if current_user.friends.include?(user)
   end
 
   def display_pending(user)
-    if friend_request_received?(user) and not current_user.friends.include?(user)
+    if friend_request_received?(user) && !current_user.friends.include?(user)
       link_to user.name, user_path(user)
       render 'friendships/decisionModal', object: user
-    elsif friend_request_sent?(user) and not current_user.friends.include?(user)
+    elsif friend_request_sent?(user) && !current_user.friends.include?(user)
       link_to user.name, user_path(user)
     end
   end
