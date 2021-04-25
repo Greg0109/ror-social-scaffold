@@ -3,3 +3,63 @@
     <%= render @users %>
   </ul>
 </section>
+
+<% unless @friends.empty? %>
+  <div>
+    <h2>My Friends</h2> 
+    <% @friends.each do |friend|%>
+      <div>
+        <div>
+          <%= link_to user_path(friend) do %>
+            <%= friend.name %>
+          <% end %>
+        </div>
+        <div>   
+          <button>Friend</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% unless @friend_requests.empty? %>
+  <div>
+      <h2>Pending Friend Requests</h2> 
+      <% @friend_requests.each do |user|%> <!-- Shows all users friend requests has been sent to -->
+        <div>
+          <div> 
+            <%= link_to user_path(user) do %>
+            <%= user.name %>
+            <% end %>
+          </div>
+          <div>
+            <button data-toggle="modal" data-target="#decisionModal">
+              Pending Friend Request... 
+            </button>
+          </div>
+        </div>
+          <%= render 'friendships/decisionModal', object: user %>
+        <br><br>
+      <% end %>
+  </div>
+<% end %>
+
+<% unless @pending_requests.empty? %>
+  <div>
+    <h2>Sent Friend Requests</h2> 
+    <% @pending_requests.each do |user|%>
+      <div>
+        <div> 
+          <%= link_to user_path(user) do %>
+            <%= user.name %>
+          <% end %>
+        </div>
+        <div>
+          <button disabled>
+            Friend Request pending... 
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

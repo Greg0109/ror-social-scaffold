@@ -24,13 +24,25 @@ module ApplicationHelper
   def friend_request_received?(user)
     current_user.friend_request.exists?(sent_by_id: user.id, status: false)
   end
-  
+
   def possible_friend?(user)
     request_sent = current_user.friend_sent.exists?(sent_to_id: user.id)
     request_received = current_user.friend_request.exists?(sent_by_id: user.id)
     
-    return true if request_sent != request_recieved    
-    return true if request_sent == request_recieved && request_sent == true    
-    return false if request_sent == request_recieved && request_sent == false
+    return true if request_sent != request_received    
+    return true if request_sent == request_received && request_sent == true    
+    return false if request_sent == request_received && request_sent == false
+  end
+
+  def isFriend(user)
+    return unless current_user != user
+    (content_tag :span do 
+      link_to user.name, user_path(user)
+    end) +
+    unless possible_friend?(user)
+      (content_tag :span do
+        link_to ' | Add as friend', user_friendships_path(user), method: :post
+      end)
+    end
   end
 end
