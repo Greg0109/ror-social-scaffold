@@ -12,3 +12,4 @@ require 'faker'
 end
 
 User.create(name: 'Greg', email: 'greg.rabago@gmail.com', password: '123456', password_confirmation: '123456')
+User.create(name: 'Test', email: 'test.rabago@gmail.com', password: '123456', password_confirmation: '123456')
