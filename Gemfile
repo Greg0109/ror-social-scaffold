@@ -38,7 +38,9 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'omniauth-facebook'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 
