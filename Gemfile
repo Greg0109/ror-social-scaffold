@@ -44,6 +44,8 @@ gem 'mini_magick'
 gem 'omniauth-facebook'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+gem 'rspec-rails'
+gem 'shoulda-matchers', '~> 4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
