@@ -42,9 +42,9 @@ gem 'devise'
 gem 'faker'
 gem 'mini_magick'
 gem 'omniauth-facebook'
+gem 'rspec-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'rspec-rails'
 gem 'shoulda-matchers', '~> 4.0'
 
 group :development, :test do
