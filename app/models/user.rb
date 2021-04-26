@@ -31,10 +31,6 @@ class User < ApplicationRecord
            through: :friend_request, source: :sent_by
 
   def friends_and_own_posts
-    our_posts = []
-    posts.each do |p|
-      our_posts << p
-    end
-    our_posts
+    Post.where(user: (friends.to_a << self))
   end
 end
