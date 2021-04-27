@@ -3,3 +3,15 @@
     <%= render @users %>
   </ul>
 </section>
+<br>
+<br>
+<h2>Friends</h2>
+<% @users.each do |user| %>
+  <%= display_friends(user) %>
+<% end %>
+<br>
+<br>
+<h2>Pending Friends Requests</h2>
+<% @users.each do |user| %>
+  <%= display_pending(user) %>
+<% end %>
