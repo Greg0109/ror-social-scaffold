@@ -9,13 +9,12 @@ class Friendship < ApplicationRecord
     return unless @friendship # return if no record is found
 
     @friendship.status = true
-    if @friendship.save
-      @friendship2 = current_user.friend_sent.build(sent_to_id: user_id, status: true)
-      @friendship2.save
-    end
+    @friendship.save
+    @friendship2 = current_user.friend_sent.build(sent_to_id: user_id, status: true)
+    @friendship2.save
   end
 
-  def self.declined_friend(current_user_id, userid)
+  def self.declined_friend(current_user, user_id)
     @friendship = Friendship.find_by(sent_by_id: user_id, sent_to_id: current_user.id, status: false)
     return unless @friendship # return if no record is found
 
