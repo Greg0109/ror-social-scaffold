@@ -5,7 +5,7 @@
 Social media template made using rails
 
 ## LIVE LINK
-COMING SOON
+[Live Version](https://mysterious-headland-38804.herokuapp.com/)
 
 ## Built With
 
